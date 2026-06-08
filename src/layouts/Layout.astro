@@ -11,7 +11,7 @@ export interface Props {
 const { title = "Algorithmics", lang = "es" } = Astro.props;
 const siteUrl = "https://algorithmics-landing-nine.vercel.app";
 const currentUrl = `${siteUrl}${Astro.url.pathname}`;
-const ogImageUrl = `${siteUrl}/og-algorithmics.jpg`;
+const ogImageUrl = `${siteUrl}/img/og-algotithmics.jpg`;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -43,7 +43,7 @@ const ogImageUrl = `${siteUrl}/og-algorithmics.jpg`;
     />
     <link rel="icon" type="image/png" href="/img/algorithmics-logo.png" />
     <title>{title}</title>
-    
+
     <ClientRouter />
 
     <script>
