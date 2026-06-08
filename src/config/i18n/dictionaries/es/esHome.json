@@ -1,0 +1,107 @@
+{
+  "slider": {
+    "slides": [
+      {
+        "title": "EDUCACIÓN",
+        "topic": "TECNOLÓGICA",
+        "desc": "En Algorithmics formamos a la próxima generación de profesionales en tecnología con programas actualizados y metodologías innovadoras.",
+        "alt": "Salón de clases Algorithmics"
+      },
+      {
+        "title": "APRENDIZAJE",
+        "topic": "PRÁCTICO",
+        "desc": "Nuestros estudiantes aprenden haciendo, con proyectos reales que los preparan para los desafíos del mercado laboral actual.",
+        "alt": "Estudiantes en Algorithmics"
+      },
+      {
+        "title": "COMUNIDAD",
+        "topic": "GLOBAL",
+        "desc": "Únete a una comunidad de más de 5,000 estudiantes y profesionales que están transformando sus carreras con tecnología.",
+        "alt": "Ambiente de aprendizaje Algorithmics"
+      },
+      {
+        "title": "CERTIFICACIÓN",
+        "topic": "INTERNACIONAL",
+        "desc": "Al finalizar nuestros programas, obtén certificaciones reconocidas internacionalmente que validan tus conocimientos.",
+        "alt": "Certificado de finalización"
+      }
+    ],
+    "thumbnails": [
+      {
+        "alt": "Profesores",
+        "title": "Profesores",
+        "description": "Expertos en la industria"
+      },
+      {
+        "alt": "Alumnos",
+        "title": "Alumnos",
+        "description": "Comunidad activa"
+      },
+      {
+        "alt": "Salón",
+        "title": "Salón",
+        "description": "Ambiente moderno"
+      },
+      {
+        "alt": "Certificados",
+        "title": "Certificados",
+        "description": "Reconocimiento internacional"
+      }
+    ]
+  },
+  "features": {
+    "title": "Por qué elegirnos",
+    "subtitle": "Ofrecemos una experiencia educativa única diseñada para tu éxito",
+    "card1_title": "Contenido Actualizado",
+    "card1_desc": "Nuestros cursos se mantienen al día con las últimas tendencias y tecnologías del mercado.",
+    "card2_title": "Mentores Expertos",
+    "card2_desc": "Aprende de profesionales con años de experiencia en la industria.",
+    "card3_title": "Aprendizaje Flexible",
+    "card3_desc": "Estudia a tu propio ritmo, desde cualquier lugar y en cualquier momento."
+  },
+  "courses": {
+    "title": "Cursos Populares",
+    "subtitle": "Descubre nuestros programas más demandados",
+    "badge1": "Nuevo",
+    "badge2": "Más Popular",
+    "badge3": "Próximamente",
+    "card1_title": "Desarrollo Web Full Stack",
+    "card1_desc": "Aprende a crear aplicaciones web completas desde el frontend hasta el backend.",
+    "card1_duration": "6 meses",
+    "card2_title": "Ciencia de Datos",
+    "card2_desc": "Domina el análisis de datos, machine learning y visualización de información.",
+    "card2_duration": "8 meses",
+    "card3_title": "UX/UI Design",
+    "card3_desc": "Crea experiencias de usuario excepcionales y interfaces atractivas.",
+    "card3_duration": "4 meses",
+    "view_course": "Ver Curso",
+    "duration": "Duración"
+  },
+  "testimonials": {
+    "title": "Lo que dicen nuestros estudiantes",
+    "subtitle": "Experiencias reales de personas que transformaron sus carreras",
+    "quote1": "Completé el curso de Desarrollo Web y en menos de 3 meses conseguí mi primer trabajo como desarrollador frontend. La calidad del contenido y el apoyo de los mentores fue excepcional.",
+    "name1": "María Cortés",
+    "role1": "Desarrolladora Frontend",
+    "quote2": "Como profesional en transición de carrera, el curso de Ciencia de Datos me proporcionó las bases sólidas que necesitaba. Ahora trabajo analizando datos para una empresa tecnológica.",
+    "name2": "Javier Pérez",
+    "role2": "Analista de Datos"
+  },
+  "contact": {
+    "title": "¿Listo para comenzar?",
+    "subtitle": "Contáctanos para obtener más información sobre nuestros programas y cómo podemos ayudarte a alcanzar tus metas profesionales.",
+    "name": {
+      "label": "Nombre completo",
+      "placeholder": "Tu nombre"
+    },
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "tu@email.com"
+    },
+    "message": {
+      "label": "Mensaje",
+      "placeholder": "Cuéntanos cómo podemos ayudarte"
+    },
+    "contact-us": "¡Contáctanos!"
+  }
+}

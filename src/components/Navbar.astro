@@ -1,0 +1,173 @@
+---
+import { getLangFromUrl, useTranslations } from "../config/i18n/utils";
+import Icon from "./Icon.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const basePath = `/${lang}`;
+---
+
+<header class="navbar sticky top-0 z-[200] bg-white border-b border-neutral-200 shadow-sm" transition:name="navbar">
+  <div class="container mx-auto max-w-6xl px-6 flex items-center justify-between py-4">
+    <a href={basePath} class="logo no-underline">
+      <img src="/img/algorithmics-logo_largo.png" alt="Algorithmics" class="h-10 w-auto" />
+    </a>
+
+    <button id="menu-toggle" class="sm:hidden p-2 text-neutral-700 hover:text-primary-600 transition-colors" aria-label={t("nav.menu_open") || "Abrir menú"}>
+      <span id="menu-icon-open"><Icon name="menu" class="h-6 w-6" /></span>
+
+      <span id="menu-icon-close" class="hidden"><Icon name="close" class="h-6 w-6" /></span>
+    </button>
+
+    <ul class="flex items-center gap-8 list-none m-0 p-0 max-sm:hidden">
+      <li class="flex items-center">
+        <a href={basePath + "#features"} class="text-neutral-700 font-medium no-underline transition-colors hover:text-primary-600" data-i18n="nav.about">
+          {t("nav.about")}
+        </a>
+      </li>
+
+      <li class="flex items-center">
+        <a href={basePath + "#courses"} class="text-neutral-700 font-medium no-underline transition-colors hover:text-primary-600" data-i18n="nav.courses">
+          {t("nav.courses")}
+        </a>
+      </li>
+
+      <li class="flex items-center">
+        <a href={basePath + "#testimonials"} class="text-neutral-700 font-medium no-underline transition-colors hover:text-primary-600" data-i18n="nav.testimonials">
+          {t("nav.testimonials")}
+        </a>
+      </li>
+
+      <li class="flex items-center">
+        <button id="lang-toggle" class="flex items-center gap-1 p-2 text-neutral-500 hover:text-primary-600 transition-colors" aria-label={t("nav.lang_toggle") || "Cambiar idioma"}>
+          <Icon name="globe" class="h-5 w-5" />
+          <span id="lang-label" class="text-xs font-semibold uppercase">{lang.toUpperCase()}</span>
+        </button>
+      </li>
+      
+      <li class="flex items-center">
+        <a href={basePath + "/en-desarrollo"} class="btn btn-secondary" data-i18n="nav.start" data-i18n-href="/en-desarrollo">
+          {t("nav.start")}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="mobile-menu" class="sm:hidden hidden bg-white border-t border-neutral-200">
+    <div class="container mx-auto max-w-6xl px-6 py-10">
+      <ul class="flex flex-col gap-4 list-none m-0 p-0">
+        <li>
+          <a href={basePath + "#features"} class="block text-neutral-700 font-medium no-underline py-2 transition-colors hover:text-primary-600" data-i18n="nav.about">
+            {t("nav.about")}
+          </a>
+        </li>
+        <li>
+          <a href={basePath + "#courses"} class="block text-neutral-700 font-medium no-underline py-2 transition-colors hover:text-primary-600" data-i18n="nav.courses">
+            {t("nav.courses")}
+          </a>
+        </li>
+        <li>
+          <a href={basePath + "#testimonials"} class="block text-neutral-700 font-medium no-underline py-2 transition-colors hover:text-primary-600" data-i18n="nav.testimonials">
+            {t("nav.testimonials")}
+          </a>
+        </li>
+        <li class="pt-2">
+          <a href={basePath + "/en-desarrollo"} class="btn btn-secondary inline-block text-center" data-i18n="nav.start" data-i18n-href="/en-desarrollo">
+            {t("nav.start")}
+          </a>
+        </li>
+        <li class="pt-2 flex justify-center">
+          <button id="lang-toggle-mobile" class="flex items-center gap-1 p-2 text-neutral-500 hover:text-primary-600 transition-colors" aria-label={t("nav.lang_toggle") || "Cambiar idioma"}>
+            <Icon name="globe" class="h-5 w-5" />
+            <span id="lang-label-mobile" class="text-xs font-semibold uppercase">{lang.toUpperCase()}</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle") as HTMLButtonElement;
+  const menu = document.getElementById("mobile-menu") as HTMLDivElement;
+  const iconOpen = document.getElementById("menu-icon-open") as HTMLElement;
+  const iconClose = document.getElementById("menu-icon-close") as HTMLElement;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = !menu.classList.contains("hidden");
+    menu.classList.toggle("hidden");
+    iconOpen.classList.toggle("hidden");
+    iconClose.classList.toggle("hidden");
+    toggle.setAttribute("aria-label", isOpen ? "Abrir menú" : "Cerrar menú");
+  });
+
+  document.querySelectorAll("#mobile-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.add("hidden");
+      iconOpen.classList.remove("hidden");
+      iconClose.classList.add("hidden");
+      toggle.setAttribute("aria-label", "Abrir menú");
+    });
+  });
+
+  import { translations } from "../scripts/translations";
+
+  function t(lang: string, key: string): string {
+    const dict = (translations as any)[lang];
+    if (!dict) return key;
+    const keys = key.split(".");
+    let current: any = dict;
+    for (const k of keys) {
+      if (current?.[k] !== undefined) {
+        current = current[k];
+      } else {
+        return key;
+      }
+    }
+    return typeof current === "string" ? current : key;
+  }
+
+  function setLang(lang: string) {
+    localStorage.setItem("lang", lang);
+    document.documentElement.lang = lang;
+    const labels = document.querySelectorAll("#lang-label, #lang-label-mobile");
+    labels.forEach((el) => el.textContent = lang.toUpperCase());
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (key) {
+        el.textContent = t(lang, key);
+      }
+    });
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (key && (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement)) {
+        el.placeholder = t(lang, key);
+      }
+    });
+    document.querySelectorAll("[data-i18n-href]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-href");
+      if (key && el instanceof HTMLAnchorElement) {
+        el.href = "/" + lang + key;
+      }
+    });
+    document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-alt");
+      if (key && el instanceof HTMLImageElement) {
+        el.alt = t(lang, key);
+      }
+    });
+  }
+
+  document.addEventListener("click", (e) => {
+    const toggle = (e.target as HTMLElement).closest("#lang-toggle, #lang-toggle-mobile");
+    if (toggle) {
+      const currentLang = document.documentElement.lang;
+      const nextLang = currentLang === "es" ? "en" : "es";
+      localStorage.setItem("lang", nextLang);
+      const newPath = window.location.pathname.replace(`/${currentLang}`, `/${nextLang}`);
+      window.location.href = newPath;
+    }
+  });
+
+  setLang(localStorage.getItem("lang") || "es");
+</script>

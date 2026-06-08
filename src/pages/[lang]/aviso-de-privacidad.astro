@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import { useTranslations } from "../../config/i18n/utils";
+import Footer from "../../components/Footer.astro";
+import AvisoES from "../../components/legal/AvisoES.astro";
+import AvisoEN from "../../components/legal/AvisoEN.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "es" } },
+    { params: { lang: "en" } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as "es" | "en");
+const AvisoContent = lang === "es" ? AvisoES : AvisoEN;
+---
+
+<Layout title={t("section_privacy_title") || "Aviso de privacidad — Algorithmics"} lang={lang}>
+  <Navbar />
+  <main class="container mx-auto max-w-4xl px-6 py-16">
+    <h1 class="text-4xl font-bold mb-2" data-i18n="section_privacy_title">{t("section_privacy_title")}</h1>
+    <p class="text-sm text-neutral-400 mb-10">ALGORITHMICS GLOBAL FZE</p>
+
+    <AvisoContent />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Nosotros",
+    "courses": "Cursos",
+    "testimonials": "Testimonios",
+    "contact": "Contacto",
+    "start": "Comenzar",
+    "menu_open": "Abrir menú",
+    "menu_close": "Cerrar menú",
+    "lang_toggle": "Cambiar idioma"
+  },
+  "footer": {
+    "navigation": "Navegación",
+    "courses": "Cursos",
+    "rights": "Todos los derechos reservados.",
+    "privacy_policy": "Aviso de privacidad",
+    "terms_of_service": "Términos y condiciones",
+    "fullstack": "Desarrollo Web Full Stack",
+    "datascience": "Ciencia de Datos",
+    "uxui": "UX/UI Design",
+    "view_all": "Ver todos",
+    "contact": "Contacto"
+  },
+  "buttons": {
+    "view_more": "Ver más",
+    "view_all": "Ver todos",
+    "inscribe": "Inscribirse",
+    "send_message": "Enviar Mensaje",
+    "back_to_top": "Volver al inicio"
+  },
+  "section_under_construction": "Página en desarrollo",
+  "section_coming_soon": "Esta sección está siendo construida. ¡Vuelve pronto para descubrir todo lo que tenemos preparado para ti!",
+  "section_terms_title": "Términos y Condiciones",
+  "section_privacy_title": "Aviso de Privacidad",
+  "section_last_updated": "Última actualización: Junio 2026",
+  "placeholders": {
+    "search": "Buscar..."
+  },
+  "errors": {
+    "required": "Este campo es obligatorio.",
+    "invalid_email": "Por favor, introduce un correo válido.",
+    "generic": "Algo salió mal. Inténtalo de nuevo."
+  }
+}

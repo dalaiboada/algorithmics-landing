@@ -1,0 +1,56 @@
+---
+import { getLangFromUrl, useTranslations } from "../config/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="bg-white">
+  <div class="container mx-auto max-w-6xl px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-4xl font-bold mb-4" data-i18n="contact.title">{t("contact.title")}</h2>
+        <p class="text-neutral-700 text-lg" data-i18n="contact.subtitle">{t("contact.subtitle")}</p>
+      </div>
+
+      <div>
+        <form>
+          <div class="form-group">
+            <label class="form-label" for="name" data-i18n="contact.name.label">{t("contact.name.label")}</label>
+            <input
+              type="text"
+              id="name"
+              class="form-input"
+              placeholder={t("contact.name.placeholder")}
+              data-i18n-placeholder="contact.name.placeholder"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email" data-i18n="contact.email.label">{t("contact.email.label")}</label>
+            <input
+              type="email"
+              id="email"
+              class="form-input"
+              placeholder={t("contact.email.placeholder")}
+              data-i18n-placeholder="contact.email.placeholder"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message" data-i18n="contact.message.label">{t("contact.message.label")}</label>
+            <textarea
+              id="message"
+              class="form-input"
+              rows="4"
+              placeholder={t("contact.message.placeholder")}
+              data-i18n-placeholder="contact.message.placeholder"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" data-i18n="buttons.send_message">{t("buttons.send_message")}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

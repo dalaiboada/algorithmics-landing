@@ -1,0 +1,24 @@
+---
+// Redirect root / to the preferred language (default: Spanish)
+const lang = "es";
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algorithmics</title>
+  <script>
+    (function() {
+      var lang = localStorage.getItem("lang") || "es";
+      window.location.replace("/" + lang + window.location.hash);
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/es">
+  </noscript>
+</head>
+<body>
+  <p>Redirecting to <a href="/es">/es</a>...</p>
+</body>
+</html>

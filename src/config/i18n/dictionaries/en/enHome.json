@@ -1,0 +1,107 @@
+{
+  "slider": {
+    "slides": [
+      {
+        "title": "EDUCATION",
+        "topic": "TECHNOLOGY",
+        "desc": "At Algorithmics we train the next generation of technology professionals with updated programs and innovative methodologies.",
+        "alt": "Algorithmics classroom"
+      },
+      {
+        "title": "LEARNING",
+        "topic": "HANDS-ON",
+        "desc": "Our students learn by doing, with real projects that prepare them for today's job market challenges.",
+        "alt": "Students at Algorithmics"
+      },
+      {
+        "title": "COMMUNITY",
+        "topic": "GLOBAL",
+        "desc": "Join a community of over 5,000 students and professionals who are transforming their careers with technology.",
+        "alt": "Algorithmics learning environment"
+      },
+      {
+        "title": "CERTIFICATION",
+        "topic": "INTERNATIONAL",
+        "desc": "Upon completing our programs, earn internationally recognized certifications that validate your knowledge.",
+        "alt": "Completion certificate"
+      }
+    ],
+    "thumbnails": [
+      {
+        "alt": "Teachers",
+        "title": "Teachers",
+        "description": "Industry experts"
+      },
+      {
+        "alt": "Students",
+        "title": "Students",
+        "description": "Active community"
+      },
+      {
+        "alt": "Classroom",
+        "title": "Classroom",
+        "description": "Modern environment"
+      },
+      {
+        "alt": "Certificates",
+        "title": "Certificates",
+        "description": "International recognition"
+      }
+    ]
+  },
+  "features": {
+    "title": "Why Choose Us",
+    "subtitle": "We offer a unique educational experience designed for your success",
+    "card1_title": "Updated Content",
+    "card1_desc": "Our courses stay up to date with the latest market trends and technologies.",
+    "card2_title": "Expert Mentors",
+    "card2_desc": "Learn from professionals with years of industry experience.",
+    "card3_title": "Flexible Learning",
+    "card3_desc": "Study at your own pace, from anywhere, at any time."
+  },
+  "courses": {
+    "title": "Popular Courses",
+    "subtitle": "Discover our most in-demand programs",
+    "badge1": "New",
+    "badge2": "Most Popular",
+    "badge3": "Coming Soon",
+    "card1_title": "Full Stack Web Development",
+    "card1_desc": "Learn to build complete web applications from frontend to backend.",
+    "card1_duration": "6 months",
+    "card2_title": "Data Science",
+    "card2_desc": "Master data analysis, machine learning, and information visualization.",
+    "card2_duration": "8 months",
+    "card3_title": "UX/UI Design",
+    "card3_desc": "Create exceptional user experiences and attractive interfaces.",
+    "card3_duration": "4 months",
+    "view_course": "View Course",
+    "duration": "Duration"
+  },
+  "testimonials": {
+    "title": "What Our Students Say",
+    "subtitle": "Real experiences from people who transformed their careers",
+    "quote1": "I completed the Web Development course and within 3 months I got my first job as a frontend developer. The quality of the content and mentor support was exceptional.",
+    "name1": "Maria Cortes",
+    "role1": "Frontend Developer",
+    "quote2": "As a career changer, the Data Science course gave me the solid foundation I needed. Now I work analyzing data for a tech company.",
+    "name2": "Javier Perez",
+    "role2": "Data Analyst"
+  },
+  "contact": {
+    "title": "Ready to Get Started?",
+    "subtitle": "Contact us to learn more about our programs and how we can help you achieve your professional goals.",
+    "name": {
+      "label": "Full Name",
+      "placeholder": "Your name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "you@email.com"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Tell us how we can help you"
+    },
+    "contact-us": "Contact us!"
+  }
+}

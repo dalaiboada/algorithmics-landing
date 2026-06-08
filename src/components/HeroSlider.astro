@@ -1,0 +1,83 @@
+---
+import { ui } from "../config/i18n/ui";
+import { getLangFromUrl, useTranslations } from "../config/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const basePath = `/${lang}`;
+
+const slidesImages = [
+  "/img/algorithmics-salon7.jpg",
+  "/img/algorithmics-salon2.jpg",
+  "/img/algorithmics-salon3.jpg",
+  "/img/algorithmics-certificados.jpg",
+];
+
+const thumbnailsImages = [
+  "/img/algorithmics-salon7.jpg",
+  "/img/algorithmics-salon2.jpg",
+  "/img/algorithmics-salon3.jpg",
+  "/img/algorithmics-certificados.jpg",
+];
+
+const { slides: slidesData, thumbnails: thumbnailsData } = ui[lang].slider;
+
+const slides = slidesData.map((s, i) => ({
+  img: slidesImages[i],
+  alt: s.alt,
+  title: s.title,
+  topic: s.topic,
+  description: s.desc,
+}));
+
+const thumbnails = thumbnailsData.map((t, i) => ({
+  img: thumbnailsImages[i],
+  alt: t.alt,
+  title: t.title,
+  description: t.description,
+}));
+---
+
+<div class="slider">
+  <div class="slider_contenedor">
+    {
+      slides.map((slide, i) => (
+        <div class="item">
+          <img src={slide.img} alt={slide.alt} data-i18n-alt={`slider.slides.${i}.alt`} />
+          <div class="content">
+            <div class="title" data-i18n={`slider.slides.${i}.title`}>{slide.title}</div>
+            <div class="topic" data-i18n={`slider.slides.${i}.topic`}>{slide.topic}</div>
+            <div class="des" data-i18n={`slider.slides.${i}.desc`}>{slide.description}</div>
+
+            <div class="buttons">
+              <a href={basePath + "/en-desarrollo"} class="btn btn-primary" data-i18n="buttons.view_more" data-i18n-href="/en-desarrollo">{t("buttons.view_more")}</a>
+              <a href={basePath + "#contact"} class="btn btn-outline" data-i18n="buttons.inscribe">{t("buttons.inscribe")}</a>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="slider-arrows">
+    <button class="prev">&lt;</button>
+    <button class="next">&gt;</button>
+  </div>
+
+  <div class="thumbnail">
+    {
+      thumbnails.map((thumb, i) => (
+        <div class="item">
+          <img src={thumb.img} alt={thumb.alt} data-i18n-alt={`slider.thumbnails.${i}.alt`} />
+          
+          <div class="content">
+            <div class="title" data-i18n={`slider.thumbnails.${i}.title`}>{thumb.title}</div>
+            <div class="description" data-i18n={`slider.thumbnails.${i}.description`}>{thumb.description}</div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script src="../scripts/slider.js"></script>

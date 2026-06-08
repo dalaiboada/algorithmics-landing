@@ -1,0 +1,62 @@
+---
+import { getLangFromUrl, useTranslations } from "../config/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const basePath = `/${lang}`;
+
+const courses = [
+  {
+    badge: t("courses.badge1"),
+    badgeClass: "badge-primary",
+    title: t("courses.card1_title"),
+    description: t("courses.card1_desc"),
+    duration: t("courses.card1_duration"),
+  },
+  {
+    badge: t("courses.badge2"),
+    badgeClass: "badge-success",
+    title: t("courses.card2_title"),
+    description: t("courses.card2_desc"),
+    duration: t("courses.card2_duration"),
+  },
+  {
+    badge: t("courses.badge3"),
+    badgeClass: "badge-warning",
+    title: t("courses.card3_title"),
+    description: t("courses.card3_desc"),
+    duration: t("courses.card3_duration"),
+  },
+];
+---
+
+<section id="courses">
+  <div class="container mx-auto max-w-6xl px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4" data-i18n="courses.title">{t("courses.title")}</h2>
+      <p class="text-neutral-500 text-lg" data-i18n="courses.subtitle">{t("courses.subtitle")}</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        courses.map((course, i) => (
+          <div class="card">
+            <div class="card-header">
+              <span class={"badge " + course.badgeClass} data-i18n={"courses.badge" + (i + 1)}>{course.badge}</span>
+              <h3 class="text-xl font-bold mt-2" data-i18n={"courses.card" + (i + 1) + "_title"}>{course.title}</h3>
+            </div>
+            <div class="card-body">
+              <p class="text-neutral-500" data-i18n={"courses.card" + (i + 1) + "_desc"}>{course.description}</p>
+              <div class="mt-4">
+                <span class="text-neutral-400" data-i18n="courses.duration">{t("courses.duration")}</span>: <span data-i18n={"courses.card" + (i + 1) + "_duration"}>{course.duration}</span>
+              </div>
+            </div>
+            <div class="card-footer flex justify-center">
+              <a href={basePath + "/en-desarrollo"} class="btn btn-primary" data-i18n="courses.view_course" data-i18n-href="/en-desarrollo">{t("courses.view_course")}</a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

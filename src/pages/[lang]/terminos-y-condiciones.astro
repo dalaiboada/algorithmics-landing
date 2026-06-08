@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import { useTranslations } from "../../config/i18n/utils";
+import Footer from "../../components/Footer.astro";
+import TerminosES from "../../components/legal/TerminosES.astro";
+import TerminosEN from "../../components/legal/TerminosEN.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "es" } },
+    { params: { lang: "en" } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as "es" | "en");
+const TermContent = lang === "es" ? TerminosES : TerminosEN;
+---
+
+<Layout title={t("section_terms_title") || "Términos y condiciones — Algorithmics"} lang={lang}>
+  <Navbar />
+  <main class="container mx-auto max-w-4xl px-6 py-16">
+    <h1 class="text-4xl font-bold mb-2" data-i18n="section_terms_title">{t("section_terms_title")}</h1>
+    <p class="text-sm text-neutral-400 mb-10" data-i18n="section_last_updated">{t("section_last_updated")}</p>
+
+    <TermContent />
+  </main>
+  <Footer />
+</Layout>

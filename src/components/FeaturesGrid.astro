@@ -1,0 +1,50 @@
+---
+import { getLangFromUrl, useTranslations } from "../config/i18n/utils";
+import Icon from "./Icon.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const features = [
+  {
+    title: t("features.card1_title"),
+    description: t("features.card1_desc"),
+    icon: "book",
+  },
+  {
+    title: t("features.card2_title"),
+    description: t("features.card2_desc"),
+    icon: "users",
+  },
+  {
+    title: t("features.card3_title"),
+    description: t("features.card3_desc"),
+    icon: "clock",
+  },
+];
+---
+
+<section id="features" class="bg-neutral-50">
+  <div class="container mx-auto max-w-6xl px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4" data-i18n="features.title">{t("features.title")}</h2>
+      <p class="text-neutral-500 text-lg" data-i18n="features.subtitle">{t("features.subtitle")}</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        features.map((feature, i) => (
+          <div class="card">
+            <div class="card-body text-center">
+              <div class="feature-icon">
+                <Icon name={feature.icon} class="h-6 w-6" />
+              </div>
+              <h3 class="text-xl font-bold mb-2" data-i18n={"features.card" + (i + 1) + "_title"}>{feature.title}</h3>
+              <p class="text-neutral-500" data-i18n={"features.card" + (i + 1) + "_desc"}>{feature.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

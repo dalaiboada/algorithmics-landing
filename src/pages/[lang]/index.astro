@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import HeroSlider from "../../components/HeroSlider.astro";
+import FeaturesGrid from "../../components/FeaturesGrid.astro";
+import CoursesGrid from "../../components/CoursesGrid.astro";
+import TestimonialsSection from "../../components/TestimonialsSection.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import Footer from "../../components/Footer.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "es" } },
+    { params: { lang: "en" } },
+  ];
+}
+
+const { lang } = Astro.params;
+---
+
+<Layout title="Algorithmics" lang={lang}>
+  <Navbar />
+  <HeroSlider />
+  <FeaturesGrid />
+  <CoursesGrid />
+  <TestimonialsSection />
+  <ContactForm />
+  <Footer />
+</Layout>
